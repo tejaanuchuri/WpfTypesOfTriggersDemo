@@ -6,19 +6,20 @@
         xmlns:local="clr-namespace:WpfTypesOfTriggers"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <CheckBox Name="checkBox" Content="Check Me"/>
         <Button Content="I am a Button, Hover mouse please" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Button.Style>
                 <Style TargetType="Button">
                     <Setter Property="Foreground" Value="BlueViolet"/>
                     <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
+                        <DataTrigger Binding="{Binding ElementName=checkBox, Path=IsChecked}" Value="True">
                             <Setter Property="Foreground" Value="Blue"/>
                             <Setter Property="FontWeight" Value="Bold"/>
-                        </Trigger>
+                        </DataTrigger>
                     </Style.Triggers>
                 </Style>
             </Button.Style>
         </Button>
-    </Grid>
+    </StackPanel>
 </Window>
